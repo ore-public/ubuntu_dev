@@ -1,0 +1,38 @@
+- name: require package install
+  hosts: all
+  become: yes
+  tasks:
+    - name: packages install
+      apt:
+        name:
+          - git
+          - autoconf
+          - bison
+          - libssl-dev
+          - libyaml-dev
+          - libreadline6-dev
+          - zlib1g-dev
+          - libncurses5-dev
+          - libffi-dev
+          - libgdbm5
+          - libgdbm-dev
+          - libmysqlclient-dev
+- name: rbenv install
+  hosts: all
+  become: no
+  tasks:
+    - name: rbenv git clone
+      git:
+        repo: https://github.com/rbenv/rbenv.git
+        dest: /home/vagrant/.rbenv
+    - name: ruby-build git clone
+      git:
+        repo: https://github.com/rbenv/ruby-build.git
+        dest: /home/vagrant/.rbenv/plugins/ruby-build
+    - include_tasks: ruby_install.yml
+      with_items:
+        - 2.6.2
+        - 2.6.5
+        - 2.7.0-preview1
+      loop_control:
+        loop_var: ruby_version

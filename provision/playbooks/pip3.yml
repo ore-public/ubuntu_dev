@@ -1,0 +1,14 @@
+- name: pip3 install
+  hosts: all
+  become: yes
+  tasks:
+    - name: pip3 install
+      apt:
+        name:
+          - python-pip
+          - python3-pip
+    - name: upgrade pip
+      pip:
+        name: pip
+        executable: pip3
+        state: latest

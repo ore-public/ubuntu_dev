@@ -1,0 +1,11 @@
+$XONSH_COLOR_STYLE = "default"
+# インデントをタブ4つに
+$INDENT = "    "
+# 対応する括弧類を補完
+$XONSH_AUTOPAIR = True
+$XONSH_SHOW_TRACEBACK = True
+# いい感じのプロンプトに
+$PROMPT = "\n{CYAN}{short_cwd}{branch_color}{curr_branch:|{}}{PURPLE} ❯ "
+
+$PATH.append("/home/vagrant/.rbenv/bin")
+eval "$(rbenv init -)"

@@ -1,0 +1,6 @@
+- import_playbook: playbooks/system.yml
+- import_playbook: playbooks/pip3.yml
+# - import_playbook: playbooks/xonsh.yml
+- import_playbook: playbooks/ruby.yml
+- import_playbook: playbooks/nodejs.yml
+- import_playbook: playbooks/docker.yml

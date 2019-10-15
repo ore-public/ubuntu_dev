@@ -1,0 +1,24 @@
+- name: system
+  hosts: all
+  become: yes
+  tasks:
+    - name: aptitude
+      apt:
+        name:
+          - aptitude
+    - name: apt update
+      apt:
+        update_cache: yes
+    - name: apt upgrade
+      apt:
+        upgrade: yes
+    - name: build-essential install
+      apt:
+        name:
+          - build-essential
+    - name: config copy
+      copy: src=../files/dotbash_profile dest=/home/vagrant/.bash_profile owner=vagrant group=vagrant mode="u=rw,g=r,o=r"
+    - name: sysctl
+      sysctl:
+        name: fs.inotify.max_user_watches
+        value: 524288

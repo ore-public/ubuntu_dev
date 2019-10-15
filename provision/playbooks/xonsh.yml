@@ -1,0 +1,14 @@
+- name: xonsh install
+  hosts: all
+  become: yes
+  tasks:
+    - name: xonsh install
+      pip:
+        name:
+          - xonsh
+          - prompt_toolkit
+          - Pygments
+    - name: default shell xonsh
+      command: chsh -s '/usr/local/bin/xonsh' vagrant
+    - name: config copy
+      copy: src=../files/dotxonshrc dest=/home/vagrant/.xonshrc owner=vagrant group=vagrant mode="u=rw,g=r,o=r"

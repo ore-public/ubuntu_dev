@@ -18,6 +18,12 @@
           - build-essential
     - name: config copy
       copy: src=../files/dotbash_profile dest=/home/vagrant/.bash_profile owner=vagrant group=vagrant mode="u=rw,g=r,o=r"
+    - name: config copy
+      copy: src=../files/resolved.conf dest=/etc/systemd/resolved.conf owner=root group=root mode="u=rw,g=r,o=r"
+    - name: systemd-resolved restart
+      service:
+        name: systemd-resolved
+        state: restarted    
     - name: sysctl
       sysctl:
         name: fs.inotify.max_user_watches

@@ -4,3 +4,4 @@
 - import_playbook: playbooks/ruby.yml
 - import_playbook: playbooks/nodejs.yml
 - import_playbook: playbooks/docker.yml
+- import_playbook: playbooks/php.yml

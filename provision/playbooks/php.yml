@@ -1,0 +1,14 @@
+- name: php install
+  hosts: all
+  become: yes
+  tasks:
+    - name: require package
+      apt:
+        name:
+          - software-properties-common
+    - name: add ppa repository
+      apt_repository:
+        repo: ppa:ondrej/php
+    - name: apt update
+      apt:
+        update_cache: yes

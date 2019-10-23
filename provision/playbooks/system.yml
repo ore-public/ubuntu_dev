@@ -16,6 +16,9 @@
       apt:
         name:
           - build-essential
+          - vim
+    - name: set vim default editor
+      command: update-alternatives --set editor /usr/bin/vim.basic
     - name: config copy
       copy: src=../files/dotbash_profile dest=/home/vagrant/.bash_profile owner=vagrant group=vagrant mode="u=rw,g=r,o=r"
     - name: config copy

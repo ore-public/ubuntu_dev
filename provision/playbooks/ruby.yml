@@ -17,6 +17,7 @@
           - libgdbm5
           - libgdbm-dev
           - libmysqlclient-dev
+          - mysql-client
 - name: rbenv install
   hosts: all
   become: no

@@ -18,6 +18,8 @@
           - libgdbm-dev
           - libmysqlclient-dev
           - mysql-client
+          - postgresql-client
+          - libpq-dev
 - name: rbenv install
   hosts: all
   become: no

@@ -20,6 +20,8 @@
           - mysql-client
           - postgresql-client
           - libpq-dev
+          - libcurl4-openssl-dev
+          - imagemagick
 - name: rbenv install
   hosts: all
   become: no

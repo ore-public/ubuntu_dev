@@ -1,0 +1,8 @@
+- name: heroku cli install
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install "heroku" with option --classic
+      snap:
+        name: heroku
+        classic: yes

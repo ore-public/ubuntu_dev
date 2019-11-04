@@ -1,0 +1,9 @@
+- name: system
+  hosts: all
+  become: yes
+  tasks:
+    - name: sml install
+      apt:
+        name:
+          - smlnj
+          - mlton

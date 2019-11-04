@@ -6,3 +6,4 @@
 - import_playbook: playbooks/nodejs.yml
 - import_playbook: playbooks/docker.yml
 - import_playbook: playbooks/php.yml
+- import_playbook: playbooks/sml.yml

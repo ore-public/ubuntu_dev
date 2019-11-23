@@ -7,3 +7,4 @@
 - import_playbook: playbooks/docker.yml
 - import_playbook: playbooks/php.yml
 - import_playbook: playbooks/sml.yml
+- import_playbook: playbooks/elixir.yml

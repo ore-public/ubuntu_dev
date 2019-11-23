@@ -1,0 +1,17 @@
+- name: elixir install
+  hosts: all
+  become: yes
+  tasks:
+    - name: add erlang pgp key
+      apt_key:
+        url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+    - name: Add erlang Repository
+      apt_repository:
+        repo: deb https://packages.erlang-solutions.com/ubuntu bionic contrib
+    - name: apt update
+      apt:
+        update_cache: yes
+    - name: elixir packages install
+      apt:
+        name:
+          - elixir

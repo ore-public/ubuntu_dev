@@ -1,0 +1,12 @@
+- name: movie tools install
+  hosts: all
+  become: yes
+  tasks:
+    - name: youtube-dl install
+      pip:
+        name:
+          - youtube-dl
+    - name: ffmpeg install
+      apt:
+        name:
+          - ffmpeg

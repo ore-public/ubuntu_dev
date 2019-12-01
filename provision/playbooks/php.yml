@@ -45,3 +45,20 @@
         shell: php -r "unlink('composer-setup.php');"
       when: not composer_bin.stat.exists
       tags: composer
+    - name: apache package install
+      apt:
+        name:
+          - apache2
+          - libapache2-mod-php7.1
+    - name: enable rewrite
+      apache2_module:
+        state: present
+        name: rewrite
+    - name: apach2.conf copy
+      copy: src=../files/apache2/apache2.conf dest=/etc/apache2/apache2.conf owner=root group=root mode="u=rw,g=r,o=r"
+    - name: default.conf copy
+      copy: src=../files/apache2/000-default.conf dest=/etc/apache2/sites-available/000-default.conf owner=root group=root mode="u=rw,g=r,o=r"
+    - name: apache2 restart
+      service:
+        name: apache2
+        state: restarted

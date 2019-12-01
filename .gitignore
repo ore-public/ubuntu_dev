@@ -1,3 +1,11 @@
 .vagrant
 Dropbox
 Vagrantfile
+*
+!*/
+!.gitignore
+!Vagrantfile.sample
+!provision/*
+!provision/files/*
+!provision/files/apache2/*
+!playbooks/*

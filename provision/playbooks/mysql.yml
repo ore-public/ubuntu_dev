@@ -1,0 +1,9 @@
+- name: mysql server install
+  hosts: all
+  become: yes
+  tasks:
+    - name: require package
+      apt:
+        name:
+          - mysql-server
+          - python3-pymysql

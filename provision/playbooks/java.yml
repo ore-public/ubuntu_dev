@@ -1,0 +1,8 @@
+- name: java install
+  hosts: all
+  become: yes
+  tasks:
+    - name: java install
+      apt:
+        name:
+          - openjdk-11-jdk

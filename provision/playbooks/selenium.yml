@@ -1,0 +1,16 @@
+- name: selenium install
+  hosts: all
+  become: yes
+  tasks:
+    - name: add chrome pgp key
+      apt_key:
+        url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    - name: Add chrome Repository
+      apt_repository:
+        repo: deb http://dl.google.com/linux/chrome/deb/ stable main
+    - name: packages install
+      apt:
+        name:
+          - google-chrome-stable
+          - firefox
+          - firefox-geckodriver

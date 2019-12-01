@@ -10,3 +10,5 @@
 - import_playbook: playbooks/sml.yml
 - import_playbook: playbooks/elixir.yml
 - import_playbook: playbooks/movie.yml
+- import_playbook: playbooks/java.yml
+- import_playbook: playbooks/selenium.yml

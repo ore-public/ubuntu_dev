@@ -2,17 +2,24 @@ Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-18.04"
 
   config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 9000, host: 9000
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
   config.vm.network "forwarded_port", guest: 3306, host: 3306
+  # config.vm.network "forwarded_port", guest: 9000, host: 9000
+  # config.vm.network "forwarded_port", guest: 3000, host: 3000
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
-    vb.memory = "8096"
-    vb.cpus = 4
+    vb.memory = "1024"
+    vb.cpus = 1
   end
   config.vm.network "private_network", ip: "192.168.33.10"
 
+  # Mac 10.15以上
+  # config.vm.synced_folder "/System/Volumes/Data" + Dir.pwd, "/vagrant", type: "nfs"
+
+  # Windows or Mac 10.14以下
+  # Windowsの場合は、vagrant-winnfsd plugin が必要
+  # config.vm.synced_folder ".", "/vagrant", type: "nfs"
+  
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "provision/vagrant.yml"
     ansible.extra_vars = {

@@ -8,4 +8,4 @@ Vagrantfile
 !provision/*
 !provision/files/*
 !provision/files/apache2/*
-!playbooks/*
+!provision/playbooks/*

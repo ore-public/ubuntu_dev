@@ -1,0 +1,8 @@
+- name: aws tools install
+  hosts: all
+  become: yes
+  tasks:
+    - name: awscli install
+      pip:
+        name:
+          - awscli

@@ -12,3 +12,4 @@
 - import_playbook: playbooks/movie.yml
 - import_playbook: playbooks/java.yml
 - import_playbook: playbooks/selenium.yml
+- import_playbook: playbooks/aws.yml

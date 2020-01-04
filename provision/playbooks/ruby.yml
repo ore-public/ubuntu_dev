@@ -38,7 +38,6 @@
       with_items:
         - 2.6.2
         - 2.6.5
-        - 2.7.0-preview1
-        - 2.7.0-preview2
+        - 2.7.0
       loop_control:
         loop_var: ruby_version

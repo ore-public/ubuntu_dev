@@ -17,6 +17,9 @@
         name:
           - build-essential
           - vim
+          - xsel
+          - xvfb
+          - tmux
     - name: set vim default editor
       command: update-alternatives --set editor /usr/bin/vim.basic
     - name: config copy
@@ -31,3 +34,16 @@
       sysctl:
         name: fs.inotify.max_user_watches
         value: 524288
+    - name: add ppa nvim
+      apt_repository:
+        repo: 'ppa:neovim-ppa/stable'
+    - name: install neovim
+      apt:
+        name:
+          - neovim
+    - name: tpm git clone
+      git:
+        repo: https://github.com/tmux-plugins/tpm
+        dest: /home/vagrant/.tmux/plugins/tpm
+    - name: config copy
+      copy: src=../files/dottmux.conf dest=/home/vagrant/.tmux.conf owner=vagrant group=vagrant mode="u=rw,g=r,o=r"

@@ -4,10 +4,18 @@ else
     PS1="\[\033[36m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
 fi
 
+export DISPLAY=:0
 alias ls='ls -FG'
 alias ll='ls -alFG'
-
+alias vi='nvim'
+alias xsel='xsel --display :0'
 export PATH=$PATH:~/.rbenv/bin
 eval "$(rbenv init -)"
 export NVM_DIR="/home/vagrant/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+if [ -x /usr/bin/Xvfb ] && [ -x /usr/bin/VBoxClient ] && [ ! -f /tmp/.X0-lock ]; then
+  Xvfb -screen 0 320x240x8 > /dev/null 2>&1 &
+  sleep 0.5
+  VBoxClient --clipboard
+fi

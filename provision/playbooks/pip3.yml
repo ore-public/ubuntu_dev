@@ -12,3 +12,7 @@
         name: pip
         executable: pip3
         state: latest
+    - name: pip module
+      pip:
+        name:
+          - sqlparse

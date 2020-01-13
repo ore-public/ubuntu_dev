@@ -19,6 +19,7 @@
     - name: apt update
       apt:
         update_cache: yes
+      ignore_errors: yes
     - name: docker packages install
       apt:
         name:

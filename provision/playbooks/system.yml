@@ -9,6 +9,7 @@
     - name: apt update
       apt:
         update_cache: yes
+      ignore_errors: yes
     - name: apt upgrade
       apt:
         upgrade: yes
@@ -29,7 +30,7 @@
     - name: systemd-resolved restart
       service:
         name: systemd-resolved
-        state: restarted    
+        state: restarted
     - name: sysctl
       sysctl:
         name: fs.inotify.max_user_watches
@@ -47,3 +48,10 @@
         dest: /home/vagrant/.tmux/plugins/tpm
     - name: config copy
       copy: src=../files/dottmux.conf dest=/home/vagrant/.tmux.conf owner=vagrant group=vagrant mode="u=rw,g=r,o=r"
+    - name: set timezone
+      timezone:
+        name: Asia/Tokyo
+    - name: systemd-resolved restart
+      service:
+        name: systemd-timesyncd
+        state: restarted

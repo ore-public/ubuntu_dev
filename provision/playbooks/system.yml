@@ -16,6 +16,8 @@
     - name: build-essential install
       apt:
         name:
+          - git
+          - tig
           - build-essential
           - vim
           - xsel
@@ -55,3 +57,9 @@
       service:
         name: systemd-timesyncd
         state: restarted
+    - name: fzf install
+      git:
+        repo: https://github.com/junegunn/fzf.git
+        dest: /home/vagrant/.fzf
+    - name: config copy
+      copy: src=../files/git-prompt.sh dest=/home/vagrant/.git-prompt.sh owner=vagrant group=vagrant mode="u=rw,g=r,o=r"

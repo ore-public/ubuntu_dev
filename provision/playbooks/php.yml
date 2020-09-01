@@ -16,20 +16,20 @@
     - name: php package install
       apt:
         name:
-          - php7.1
-          - php7.1-cli
-          - php7.1-mysql
-          - php7.1-fpm
-          - php7.1-mbstring
-          - php7.1-xml
-          - php7.1-json
-          - php7.1-zip
-          - php7.1-curl
+          - php7.4
+          - php7.4-cli
+          - php7.4-mysql
+          - php7.4-fpm
+          - php7.4-mbstring
+          - php7.4-xml
+          - php7.4-json
+          - php7.4-zip
+          - php7.4-curl
     - name: php.ini copy
-      copy: src=../files/php.ini dest=/etc/php/7.1/cli/php.ini owner=root group=root mode="u=rw,g=r,o=r"
-    - name: php7.1-fpm restart
+      copy: src=../files/php.ini dest=/etc/php/7.4/cli/php.ini owner=root group=root mode="u=rw,g=r,o=r"
+    - name: php7.4-fpm restart
       service:
-        name: php7.1-fpm
+        name: php7.4-fpm
         state: restarted
     - name: check composer
       stat: path=/usr/local/bin/composer
@@ -48,7 +48,7 @@
       apt:
         name:
           - apache2
-          - libapache2-mod-php7.1
+          - libapache2-mod-php7.4
     - name: enable rewrite
       apache2_module:
         state: present
